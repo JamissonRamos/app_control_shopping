@@ -38,7 +38,7 @@ const ContainedStyles = css`
 `;
 
 export const Container = styled.div`
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
         max-width: 500px;
         min-width: 320px;
@@ -51,12 +51,12 @@ export const Container = styled.div`
     padding: 1.2rem 0;
 `;
 export const CardsHeader = styled.div`
-    /* border: 1px solid red; */
+    border: 1px solid red;
     width: 100%;
         max-width: 500px;
         min-width: 320px;
+    height: 20%;
     display: flex;
-
     justify-content: flex-start;
     gap: 16px;
     padding: .4rem ;
@@ -110,10 +110,17 @@ export const WrapButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: .8rem ;
+    padding: .8rem;
+    margin-bottom: 2rem;
     & button {
         ${ContainedStyles}
     }
     
+`;
+export const Content = styled.div`
+    border: 1px solid red;
+    width: 100%;
+    height: 60%;
+    overflow: auto
 `;
 

@@ -2,6 +2,7 @@ import { Button } from 'react-bootstrap'
 import * as S from './styled'
 import { Theme } from '../../theme'
 import { TextC } from "../../components/Typography"
+import CardsList from './components/cards_list'
 
 
 const Home = () => {
@@ -9,7 +10,6 @@ const Home = () => {
     <S.Container>
 
       <S.CardsHeader>
-
         <S.Card>
           <S.ItemIcon>
             <Theme.Icons.FaDollarSign />
@@ -19,19 +19,20 @@ const Home = () => {
             <TextC.Label level={3}>R$: 1000.000, 00</TextC.Label>
           </S.WrapText>
         </S.Card>
-
       </S.CardsHeader>
 
       <S.WrapButton>
-          <Button> 
+          <Button
+            variant="success"
+          > 
             <Theme.Icons.MdAddCircle />
             <span> Adicionar Item </span>  
           </Button>
       </S.WrapButton>
 
-        <div>
-          lista
-        </div>
+        <S.Content>
+          <CardsList />
+        </S.Content>
 
 
     </S.Container>

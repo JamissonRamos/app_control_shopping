@@ -11,20 +11,22 @@ const AppContent = () => {
 
     return (
         <>  
-            <Routes>
-                <Route 
-                    path='/'
-                    element={<Pages.Home />}
-                /> 
-                <Route 
-                    path='/splash'
-                    element={<Pages.Splash />}
-                /> 
-                <Route 
-                    path='/product'
-                    element={<Pages.Product />}
-                /> 
-            </Routes>
+            <main>
+                <Routes>
+                    <Route 
+                        path='/home'
+                        element={<Pages.Home />}
+                    /> 
+                    <Route 
+                        path='/'
+                        element={<Pages.Splash />}
+                    /> 
+                    <Route 
+                        path='/product'
+                        element={<Pages.Product />}
+                    /> 
+                </Routes>
+            </main>
         </>
     );
 };

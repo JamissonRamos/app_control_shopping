@@ -13,7 +13,6 @@ export const Colors =
     blue2900: '#003CC7 ',
     green800: '#00A791',
     green700: '#d9fbd0',
-    green600: '#1c6c09',
     green500: '#90d67f',
     grey800: '#52575C',
     grey700: '#4E4A4A',

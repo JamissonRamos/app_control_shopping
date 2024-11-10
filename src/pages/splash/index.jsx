@@ -1,7 +1,7 @@
+import * as S from './styled'
 import { Button } from "react-bootstrap"
 import { TextC } from "../../components/Typography"
 import { Theme } from "../../theme"
-import * as S from './styled'
 import { useNavigate } from "react-router-dom"
 
 const Splash = () => {

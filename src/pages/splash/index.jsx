@@ -2,8 +2,11 @@ import { Button } from "react-bootstrap"
 import { TextC } from "../../components/Typography"
 import { Theme } from "../../theme"
 import * as S from './styled'
+import { useNavigate } from "react-router-dom"
 
 const Splash = () => {
+    const navigate = useNavigate();
+
     return (
         <S.Container>
             <S.Header>
@@ -18,6 +21,7 @@ const Splash = () => {
             <S.Footer>
                 <Button
                     variant="outline-success"
+                    onClick={() => navigate('/home')}
                 >
                     <TextC.Label level={3}>  Vamos Começar! </TextC.Label>
                     <Theme.Icons.MdOutlineArrowForwardIos />

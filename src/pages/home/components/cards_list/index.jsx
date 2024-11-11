@@ -13,22 +13,22 @@ const CardsList = ({data}) => {
                 <S.WrapItem>
                     <S.WrapDescriptionIndex>
                         <S.Index>
-                            <TextC.Label level={2}> 1000002 </TextC.Label>
+                            <TextC.Label level={3}> 1000002 </TextC.Label>
                         </S.Index>
 
                         <S.Product>
-                            <TextC.Label level={2}> Lorem ipsum dolor sit amet. </TextC.Label>
+                            <TextC.Label level={3}> Lorem ipsum dolor sit amet. </TextC.Label>
                         </S.Product>
 
                     </S.WrapDescriptionIndex>
 
                     <S.WrapDateValue>
                         <S.DatePurchase>
-                            <TextC.Label level={2}> 10 - 11 -2024 </TextC.Label>
+                            <TextC.Label level={3}> 10 - 11 -2024 </TextC.Label>
                         </S.DatePurchase>
 
                         <S.ValuePurchase>
-                            <TextC.Label level={2}> R$ 100,00</TextC.Label>
+                            <TextC.Label level={3}> R$ 100,00</TextC.Label>
                         </S.ValuePurchase>
                     </S.WrapDateValue>
                 </S.WrapItem>

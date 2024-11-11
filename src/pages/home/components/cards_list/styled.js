@@ -37,11 +37,11 @@ const StyledDelete = css`
 
 const StyledText = css`
     font-size: 10px;
-    font-weight: 400;
-    line-height: 12px;
+    font-weight: 300;
+    line-height: 14px;
     text-align: left;
     text-transform: uppercase;
-    color: ${Theme.Colors.grey600};
+    color: ${Theme.Colors.grey800};
     text-transform: uppercase;
 `;
 
@@ -74,47 +74,46 @@ export const WrapItem = styled.div`
     /* gap: .8rem; */
 `;
 export const WrapDescriptionIndex = styled.div`
-border: 1px solid blue;
+/* border: 1px solid blue; */
     flex: 5;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: .8rem;
+    gap: .4rem;
 `;
-
 export const Index = styled.div`
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+
     & span {
-        ${StyledText};
+        /* ${StyledText}; */
     }
 `;
-
 export const Product = styled.div`
     /* border: 1px solid blue; */
     flex: 3.8;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     & span {
-        ${StyledText};
+        /* ${StyledText}; */
     }
 `;
 export const WrapDateValue = styled.div`
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 16px;
 `;
-
-
-
-
 export const DatePurchase = styled.div`
     /* border: 1px solid blue; */
     
     & span {
-        ${StyledText};
+        /* ${StyledText}; */
     }
     @media (max-width: 768px) {
         text-align: center;
@@ -124,15 +123,12 @@ export const ValuePurchase = styled.div`
     /* border: 1px solid blue; */
  
     & span {
-        ${StyledText};
+        /* ${StyledText}; */
     }
     @media (max-width: 768px) {
         text-align: center;
     }
 `;
-
-
-
 export const WrapButtons = styled.div`
     /* border: 1px solid blue; */
     flex: 2;

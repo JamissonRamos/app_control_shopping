@@ -19,24 +19,12 @@ const stylesText = {
         letterSpacing: '0.5px',
         fontWeight: '400',
         lineHeight: '24px',
-    },
-    4: {
-        fontSize: '18px',
-        letterSpacing: '0.15px',
-        fontWeight: '400',
-        lineHeight: '28px',
-    },
-    5: {
-        fontSize: '20px',
-        letterSpacing: '0.15px',
-        fontWeight: '400',
-        lineHeight: '30px',
-    },
+    }
 };
 
 
 export const Body = styled.span`
-    ${({ $level = 5}) => css`
+    ${({ $level = 1}) => css`
         font-size: ${stylesText[$level]?.fontSize};
         font-weight: ${stylesText[$level]?.fontWeight};
         letter-spacing: ${stylesText[$level]?.letterSpacing};

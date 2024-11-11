@@ -60,20 +60,20 @@ export const CardsHeader = styled.div`
     justify-content: flex-start;
     gap: 16px;
     padding: .4rem ;
-    margin-bottom: .8rem;
+    margin-bottom: 1rem;
 
 `;
 export const Card = styled.div`
     border: 1px solid red;
-    width: 200px;   
-    max-width: 200px;
+    /* width: 300px;    */
+    /* max-width: 200px; */
     min-width: 150px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: .8rem;
+    padding: 1rem;
     border: 1px solid ${Theme.Colors.grey400};
     border-radius: 6px;
     box-shadow: ${Theme.Shadow.sh900};

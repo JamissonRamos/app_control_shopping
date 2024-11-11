@@ -16,7 +16,7 @@ const Home = () => {
           </S.ItemIcon>
           <S.WrapText>
             <TextC.Title level={1}> Valor Total </TextC.Title>
-            <TextC.Label level={3}>R$: 1000.000, 00</TextC.Label>
+            <TextC.Title level={1}>R$: 1000.000.000, 00</TextC.Title>
           </S.WrapText>
         </S.Card>
       </S.CardsHeader>

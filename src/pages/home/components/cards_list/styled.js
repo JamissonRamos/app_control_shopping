@@ -56,9 +56,10 @@ export const Content = styled.div`
 
 export const CardItem = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 8px;
     padding: .4rem; // definir um espaço de elemento;
     border: .75px solid ${Theme.Colors.grey400};
     /* box-shadow: ${Theme.Shadow.sh600}; */
@@ -66,6 +67,7 @@ export const CardItem = styled.div`
 
 `;
 export const WrapItem = styled.div`
+    width: 100%;
     flex: 5;
     display: flex;
     flex-direction: column;
@@ -131,6 +133,7 @@ export const ValuePurchase = styled.div`
 `;
 export const WrapButtons = styled.div`
     /* border: 1px solid blue; */
+    width: 100%;
     flex: 2;
     display: flex;
     justify-content: space-around;

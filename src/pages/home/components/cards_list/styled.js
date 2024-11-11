@@ -85,22 +85,23 @@ export const WrapDescriptionIndex = styled.div`
 `;
 export const Index = styled.div`
     /* border: 1px solid blue; */
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-
-    & span {
-        /* ${StyledText}; */
-    }
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
 `;
 export const Product = styled.div`
     /* border: 1px solid blue; */
     flex: 3.8;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
     & span {
-        /* ${StyledText}; */
+        font-size: 12px;
+        letter-Spacing: 0.5px;
+        line-Height: 12px;
+        font-Weight: 500;
+        color: ${Theme.Colors.grey700};
+        text-transform: uppercase;
     }
 `;
 export const WrapDateValue = styled.div`

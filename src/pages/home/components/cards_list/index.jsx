@@ -17,19 +17,11 @@ const CardsList = ({data}) => {
                         </S.Index>
 
                         <S.Product>
-                            {/* <TextC.Label level={3}>
-                                Lorem ipsum dolor sit 
-                                amet.jajajajajajajaja2
-                                jajaajajajajajajjajajajajajajajajajajajajajajajajajajajajajajajajajasjaaajjabcllacblabclbajcbbcabjanjcknkacnjacnacjancjancjkn
-                            </TextC.Label> */}
-
+                        
                             <span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eius neque necessitatibus voluptatem quia aliquam blanditiis fugiat esse corporis inventore dolor similique, odit aspernatur consectetur earum qui veniam delectus. Ipsa quas, ratione dolores accusantium distinctio ut in ipsum, perspiciatis laborum quam officia. Corrupti quia commodi laborum consectetur officiis quidem eaque!
+                                Lorem ipsum dolor sit amet! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident distinctio dicta totam atque assumenda, molestias numquam consequuntur, vero ipsam recusandae cum, iure libero culpa temporibus repellendus a nihil ipsum inventore? Adipisci neque nesciunt dolorum ipsum exercitationem maxime culpa numquam placeat?
                             </span>
-                       
-                       
-                       
-                       
+
                         </S.Product>
 
                     </S.WrapDescriptionIndex>

@@ -56,7 +56,7 @@ const CardsList = ({data}) => {
                         <S.Index>
                             {/* Foi preciso passar o span puro para fica flex o contesto do span
                             */}
-                            <span> 2 </span>
+                            <span> 22525252525252529 </span>
                         </S.Index>
 
                         <S.Product>

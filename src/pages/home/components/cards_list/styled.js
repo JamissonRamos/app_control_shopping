@@ -76,7 +76,8 @@ export const Index = styled.div`
     width: auto;
     span {
         display: inline-block;   /* Permite definir largura e altura */
-        width: 100px;             /* Define a largura máxima */
+        width: auto;
+        max-width: 100px;             /* Define a largura máxima */
         word-wrap: break-word;   /* Quebra o texto */
         overflow-wrap: break-word;
         white-space: normal;     /* Permite que o texto quebre em várias linhas */

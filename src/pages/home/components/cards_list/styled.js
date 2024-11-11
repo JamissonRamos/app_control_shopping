@@ -35,25 +35,14 @@ const StyledDelete = css`
     }
 `;
 
-const StyledText = css`
-    font-size: 10px;
-    font-weight: 300;
-    line-height: 14px;
-    text-align: left;
-    text-transform: uppercase;
-    color: ${Theme.Colors.grey800};
-    text-transform: uppercase;
-`;
-
 export const Content = styled.div`
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: .8rem; //Quando gerar barra de rolagem;
 `;
-
 export const CardItem = styled.div`
     display: flex;
     flex-direction: column;
@@ -73,7 +62,6 @@ export const WrapItem = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    /* gap: .8rem; */
 `;
 export const WrapDescriptionIndex = styled.div`
 /* border: 1px solid blue; */
@@ -85,16 +73,19 @@ export const WrapDescriptionIndex = styled.div`
 `;
 export const Index = styled.div`
     /* border: 1px solid blue; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
+    width: auto;
+    span {
+        display: inline-block;   /* Permite definir largura e altura */
+        width: 100px;             /* Define a largura máxima */
+        word-wrap: break-word;   /* Quebra o texto */
+        overflow-wrap: break-word;
+        white-space: normal;     /* Permite que o texto quebre em várias linhas */
+        overflow: hidden;        /* Oculta o texto excedente */
+    }
 `;
 export const Product = styled.div`
     /* border: 1px solid blue; */
     flex: 3.8;
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
     & span {
         font-size: 12px;
         letter-Spacing: 0.5px;
@@ -115,19 +106,12 @@ export const WrapDateValue = styled.div`
 export const DatePurchase = styled.div`
     /* border: 1px solid blue; */
     
-    & span {
-        /* ${StyledText}; */
-    }
     @media (max-width: 768px) {
         text-align: center;
     }
 `;
 export const ValuePurchase = styled.div`
     /* border: 1px solid blue; */
- 
-    & span {
-        /* ${StyledText}; */
-    }
     @media (max-width: 768px) {
         text-align: center;
     }

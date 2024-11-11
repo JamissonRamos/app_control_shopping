@@ -55,7 +55,7 @@ export const CardsHeader = styled.div`
     width: 100%;
         max-width: 500px;
         min-width: 320px;
-    height: 20%;
+    height: 12%;
     display: flex;
     justify-content: flex-start;
     gap: 16px;
@@ -68,6 +68,7 @@ export const Card = styled.div`
     width: 200px;   
     max-width: 200px;
     min-width: 150px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,12 +91,13 @@ export const ItemIcon = styled.div`
     `;
 export const WrapText = styled.div`
     /* border: 1px solid red; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    
+    gap: 4px;
+    padding: .2rem 0;
     & span {
         color: ${Theme.Colors.green800};
     }

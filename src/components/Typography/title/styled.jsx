@@ -24,7 +24,7 @@ const stylesText = {
 
 
 export const Title = styled.span`
-    ${({ $level = 5}) => css`
+    ${({ $level = 1}) => css`
         font-size: ${stylesText[$level]?.fontSize};
         font-weight: ${stylesText[$level]?.fontWeight};
         letter-spacing: ${stylesText[$level]?.letterSpacing};

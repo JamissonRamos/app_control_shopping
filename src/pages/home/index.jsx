@@ -15,7 +15,7 @@ const Home = () => {
             <Theme.Icons.FaDollarSign />
           </S.ItemIcon>
           <S.WrapText>
-            <TextC.Headline level={1}> Valor Total </TextC.Headline>
+            <TextC.Title level={1}> Valor Total </TextC.Title>
             <TextC.Label level={3}>R$: 1000.000, 00</TextC.Label>
           </S.WrapText>
         </S.Card>

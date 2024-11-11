@@ -2,8 +2,10 @@ import { useState } from "react";
 import * as S from './styled';
 import { TextC } from "../../../../components/Typography";
 import { Theme } from "../../../../theme";
+import { useNavigate } from "react-router-dom";
 
 const CardsList = ({data}) => {
+    const navigate = useNavigate();
     const [registered] = useState(data || []);
 
     return (
@@ -86,7 +88,9 @@ const CardsList = ({data}) => {
                         <Theme.Icons.MdDelete />
                     </S.WrapButtonDelete>
 
-                    <S.WrapButtonEdit>
+                    <S.WrapButtonEdit
+                        onClick={() => navigate('/product')}
+                    >
                         <Theme.Icons.MdEdit />
                     </S.WrapButtonEdit>
 

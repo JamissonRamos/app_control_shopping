@@ -22,8 +22,12 @@ const AppContent = () => {
                         element={<Pages.Splash />}
                     /> 
                     <Route 
-                        path='/product'
-                        element={<Pages.Product />}
+                        path='/product/create'
+                        element={<Pages.ProductCreate />}
+                    /> 
+                    <Route 
+                        path='/product/update'
+                        element={<Pages.ProductUpdate />}
                     /> 
                 </Routes>
             </main>

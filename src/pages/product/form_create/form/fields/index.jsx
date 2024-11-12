@@ -1,10 +1,10 @@
-import { Col, Form, Row } from 'react-bootstrap'
 import * as S from './styled'
+import { Col, Form, Row } from 'react-bootstrap'
 
 const Fields = () => {
 
     return (
-        <>
+        <S.Content>
             <Row className="mb-2 px-2 ">
                 <Col>
                     <Form.Group className="p-1" controlId="GroupProductName">
@@ -14,11 +14,11 @@ const Fields = () => {
                             name="productName"
                             placeholder="Digite o nome do produto." 
                             // {...register("fullName")}
-                            // isInvalid={!!errors.fullName}
+                            isInvalid={true}
                             // onBlur={(e) => handleBlur(e)}
                         />
                         <Form.Control.Feedback type="invalid">
-                            error
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos exercitationem sint nihil? Modi ducimus, placeat adipisci excepturi temporibus nihil tempore!
                             {/* {errors.fullName && errors.fullName.message} */}
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -61,7 +61,7 @@ const Fields = () => {
                     </Form.Group>
                 </Col>
             </Row>
-        </>
+        </S.Content>
     )
 }
 

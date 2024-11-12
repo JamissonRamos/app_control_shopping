@@ -4,11 +4,6 @@ import FormCreate from './form'
 
 const ProductCreate = () => {
 
-
-
-
-
-
     return (
         <S.Container>
             <Header />

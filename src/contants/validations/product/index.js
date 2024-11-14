@@ -16,14 +16,14 @@ export const Product = yup.object().shape({
     quantityPurchase: yup
         .string()
         .required('Campo QTD Produto é obrigatório')
-        .matches(/^[A-Za-z0-9]+$/, 'A quantidade deve conter apenas letras e números, sem caracteres especiais')
+        .matches(/^[A-Za-z0-9.]+$/, 'A quantidade deve conter apenas letras, números e o caractere ponto (.), sem outros caracteres especiais')
         .test('not-zero', 'A quantidade não pode ser igual a 0', (value) => {
             const sanitizedValue = value.replace(/^0+/, ''); // Remove zeros à esquerda
             return sanitizedValue !== '' && sanitizedValue !== '0'; // Verifica se o valor não é vazio e não é "0"
         })
-        .test('only-numbers-or-mixed', 'A quantidade deve conter apenas números ou uma combinação de letras e números', (value) => {
-            const onlyNumbers = /^[0-9]+$/;
-            const containsNumbersAndLetters = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9]+$/;
+        .test('only-numbers-or-mixed', 'A quantidade deve conter apenas números, letras, ou uma combinação de ambos', (value) => {
+            const onlyNumbers = /^[0-9.]+$/;
+            const containsNumbersAndLetters = /^(?=.*[0-9])(?=.*[A-Za-z])[A-Za-z0-9.]+$/;
             return onlyNumbers.test(value) || containsNumbersAndLetters.test(value);
         })
         ,

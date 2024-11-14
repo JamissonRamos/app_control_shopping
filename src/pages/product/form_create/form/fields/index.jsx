@@ -62,9 +62,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Label className="m-0"> QTD Produto </Form.Label>
                         <Form.Control 
                             type="text" 
-                            inputMode="numeric"
                             name="quantityPurchase"
-                            //setValue={1}
                             placeholder="Digite a quantidade de produto." 
                             {...register("quantityPurchase")}
                             isInvalid={!!errors.quantityPurchase}

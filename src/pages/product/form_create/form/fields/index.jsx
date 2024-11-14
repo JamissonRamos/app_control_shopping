@@ -16,7 +16,6 @@ const Fields = ({register, setValue, errors}) => {
         let fieldValue = e.target.value;
         let capitalized = CapitalizedValue(fieldValue)
         setValue(fieldName, capitalized)
-
     }
 
 
@@ -62,6 +61,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Label className="m-0"> QTD Produto </Form.Label>
                         <Form.Control 
                             type="text" 
+                            inputMode="decimal" // Use 'decimal' para permitir números e a opção de letras
                             name="quantityPurchase"
                             placeholder="Digite a quantidade de produto." 
                             {...register("quantityPurchase")}

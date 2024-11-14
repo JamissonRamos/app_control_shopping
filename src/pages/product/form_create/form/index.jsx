@@ -21,6 +21,13 @@ const FormCreate = () => {
     
 
     const handleOnSubmit = (data) => {
+        /* 
+            - Transforma data em dd-mm-aaaa;
+            - limpar mascara de valor campo;
+            
+        
+        */
+
 
         console.log(data);
         

@@ -14,7 +14,9 @@ const FormCreate = () => {
         defaultValues: {
             datePurchase: new Date().toISOString().split('T')[0], // Data de hoje
             quantityPurchase: 1,
+            unitMeasure: "CDA",
             valuePurchase: 'R$ 0,00',
+
         },
 
     });
@@ -29,7 +31,7 @@ const FormCreate = () => {
         */
 
             data.datePurchase = FormattedDate(data.datePurchase)
-            
+
 
 
         console.log(data);

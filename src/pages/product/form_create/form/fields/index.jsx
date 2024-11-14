@@ -61,8 +61,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Label className="m-0"> QTD Produto </Form.Label>
                         <Form.Control 
                             type="text" 
-                            inputMode="text" // Use 'text' para permitir letras e números
-                           // pattern="[0-9a-zA-Z]*" // Permitir apenas números e letras
+                            inputMode="numeric" 
                             name="quantityPurchase"
                             placeholder="Digite a quantidade de produto." 
                             {...register("quantityPurchase")}
@@ -70,6 +69,24 @@ const Fields = ({register, setValue, errors}) => {
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.quantityPurchase && errors.quantityPurchase.message}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Row className="mb-2 px-2 ">
+                <Col>
+                    <Form.Group className="p-1" controlId="GroupUnitMeasure">
+                        <Form.Label className="m-0"> UND </Form.Label>
+                        <Form.Control 
+                            type="text" 
+                            name="unitMeasure"
+                            placeholder="Digite a UND MTS, KG, CDA." 
+                            {...register("unitMeasure")}
+                            isInvalid={!!errors.unitMeasure}
+                            onBlur={(e) => handleBlur(e)}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.unitMeasure && errors.unitMeasure.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

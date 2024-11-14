@@ -62,7 +62,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Control 
                             type="text" 
                             inputMode="text" // Use 'text' para permitir letras e números
-                            pattern="[0-9a-zA-Z]*" // Permitir apenas números e letras
+                           // pattern="[0-9a-zA-Z]*" // Permitir apenas números e letras
                             name="quantityPurchase"
                             placeholder="Digite a quantidade de produto." 
                             {...register("quantityPurchase")}

@@ -62,6 +62,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Control 
                             type="text" 
                             inputMode="decimal" // Use 'decimal' para permitir números e a opção de letras
+                            pattern="[0-9a-zA-Z]*" // Permitir apenas números e letras
                             name="quantityPurchase"
                             placeholder="Digite a quantidade de produto." 
                             {...register("quantityPurchase")}

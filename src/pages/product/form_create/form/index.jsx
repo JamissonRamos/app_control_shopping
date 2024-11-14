@@ -5,6 +5,7 @@ import { Theme } from '../../../../theme'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Product } from '../../../../contants/validations/product'
+import { FormattedDate } from '../../scripts';
 
 const FormCreate = () => {
 
@@ -24,9 +25,11 @@ const FormCreate = () => {
         /* 
             - Transforma data em dd-mm-aaaa;
             - limpar mascara de valor campo;
-            
-        
+                    
         */
+
+            data.datePurchase = FormattedDate(data.datePurchase)
+            
 
 
         console.log(data);

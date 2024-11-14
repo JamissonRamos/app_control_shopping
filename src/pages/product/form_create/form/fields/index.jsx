@@ -61,7 +61,7 @@ const Fields = ({register, setValue, errors}) => {
                         <Form.Label className="m-0"> QTD Produto </Form.Label>
                         <Form.Control 
                             type="text" 
-                            inputMode="decimal" // Use 'decimal' para permitir números e a opção de letras
+                            inputMode="text" // Use 'text' para permitir letras e números
                             pattern="[0-9a-zA-Z]*" // Permitir apenas números e letras
                             name="quantityPurchase"
                             placeholder="Digite a quantidade de produto." 

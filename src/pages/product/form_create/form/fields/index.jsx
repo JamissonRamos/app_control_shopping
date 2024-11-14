@@ -1,8 +1,24 @@
+import { CapitalizedValue, FormatCurrency } from '../../../scripts';
 import * as S from './styled'
 import { Col, Form, Row } from 'react-bootstrap'
 
-const Fields = () => {
-    const today = new Date().toISOString().split('T')[0]; // Formata a data para YYYY-MM-DD
+const Fields = ({register, setValue, errors}) => {
+
+    const handleChange = (e) => {
+        let fieldName = e.target.name;
+        let fieldValue = e.target.value;
+        let maskedValue =   FormatCurrency(fieldValue)
+        setValue(fieldName, maskedValue)
+    };
+
+    const handleBlur = (e) => {
+        let fieldName = e.target.name;
+        let fieldValue = e.target.value;
+        let capitalized = CapitalizedValue(fieldValue)
+        setValue(fieldName, capitalized)
+
+    }
+
 
     return (
         <S.Content>
@@ -14,13 +30,12 @@ const Fields = () => {
                             type="text" 
                             name="productName"
                             placeholder="Digite o nome do produto." 
-                            // {...register("productName")}
-                            isInvalid={true}
-                            // onBlur={(e) => handleBlur(e)}
+                            {...register("productName")}
+                            isInvalid={!!errors.productName}
+                            onBlur={(e) => handleBlur(e)}
                         />
                         <Form.Control.Feedback type="invalid">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            {/* {errors.fullName && errors.fullName.message} */}
+                            {errors.productName && errors.productName.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -30,18 +45,13 @@ const Fields = () => {
                     <Form.Group className="p-1" controlId="GroupDatePurchase">
                         <Form.Label className="m-0"> Data Compra </Form.Label>
                         <Form.Control   
-                        /* 
-                            -Coloca data do dia sempre inicial como padrão;
-                        */
                             type="date" 
                             name="datePurchase"
-                            defaultValue={today} // Define a data padrão como hoje
-                            // {...register("birthDate")}
-                            // isInvalid={!!errors.birthDate}
+                            {...register("datePurchase")}
+                            isInvalid={!!errors.datePurchase}
                         />
                         <Form.Control.Feedback type="invalid">
-                            error
-                            {/* {errors.fullName && errors.fullName.message} */}
+                            {errors.datePurchase && errors.datePurchase.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -51,20 +61,16 @@ const Fields = () => {
                     <Form.Group className="p-1" controlId="GroupQuantityPurchase">
                         <Form.Label className="m-0"> QTD Produto </Form.Label>
                         <Form.Control 
-                            /* 
-                                - Criar uma validação para campo não aceita se não for numero
-                            */
                             type="text" 
                             inputMode="numeric"
                             name="quantityPurchase"
+                            //setValue={1}
                             placeholder="Digite a quantidade de produto." 
-                            // {...register("fullName")}
-                            // isInvalid={!!errors.fullName}
-                            // onBlur={(e) => handleBlur(e)}
+                            {...register("quantityPurchase")}
+                            isInvalid={!!errors.quantityPurchase}
                         />
                         <Form.Control.Feedback type="invalid">
-                            error
-                            {/* {errors.fullName && errors.fullName.message} */}
+                            {errors.quantityPurchase && errors.quantityPurchase.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -74,20 +80,16 @@ const Fields = () => {
                     <Form.Group className="p-1" controlId="GroupValuePurchase">
                         <Form.Label className="m-0"> Valor Compra </Form.Label>
                         <Form.Control 
-                            /* 
-                                - Criar mascara para aceita formato dinheiro
-                            */
                             type="text" 
                             inputMode="numeric"
                             name="valuePurchase"
                             placeholder="Digite o nome do produto." 
-                            // {...register("fullName")}
-                            // isInvalid={!!errors.fullName}
-                            // onBlur={(e) => handleBlur(e)}
+                            {...register("valuePurchase")}
+                            isInvalid={!!errors.valuePurchase}
+                            onChange={handleChange}
                         />
                         <Form.Control.Feedback type="invalid">
-                            error
-                            {/* {errors.fullName && errors.fullName.message} */}
+                            {errors.valuePurchase && errors.valuePurchase.message}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

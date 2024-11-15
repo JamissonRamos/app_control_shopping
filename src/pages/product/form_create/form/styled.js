@@ -85,6 +85,31 @@ export const Container = styled.div`
     overflow: auto;
 `;
 
+export const SpinnerCustom = styled.div`
+    /* border: 1px solid red; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: ${Theme.Colors.black800};
+    & span {
+        color: ${Theme.Colors.yellow600};
+    }
+    @media (max-width: 320px) {
+
+        & :last-child {
+            /* Retirar o texto */
+            display: none;
+        }
+    }
+
+`;
+
 export const Form = styled.form`
     /* border: 1px solid red; */
     width: 100%;

@@ -10,11 +10,13 @@ export const CapitalizedValue = (fieldValue) => {
     return(newValue); // Atualiza o valor no React Hook Form
 };
 
-export const FormatCurrency = (value) => {
+export const FormatCurrency = (value) => {   
+    
     console.log(value);
     
     if(value === 0) return
     if(value === '') return
+
     // Remove todos os caracteres que não são dígitos
     const cleanedValue = value.replace(/\D/g, '');
     const numberValue = parseInt(cleanedValue, 10) / 100; // Divide por 100 para ajustar as casas decimais
@@ -23,6 +25,14 @@ export const FormatCurrency = (value) => {
         style: 'currency',
         currency: 'BRL',
     }).format(numberValue);
+};
+
+export const ClearFormatCurrency = (value) => {    
+    // Remove todos os caracteres que não são dígitos
+    const cleanedValue = value.replace(/\D/g, '');
+    const numberValue = parseInt(cleanedValue, 10) / 100; // Divide por 100 para ajustar as casas decimais
+    // Formata o número para o formato de moeda
+    return numberValue;
 };
 
 export const FormattedDate = (birthDate) => {

@@ -16,7 +16,7 @@ const Base = createGlobalStyle`
     }
 
     main {
-        border: 1px solid green;
+        /* border: 1px solid green; */
         width: 100vw;
         height: 100vh;
         padding: .4rem;

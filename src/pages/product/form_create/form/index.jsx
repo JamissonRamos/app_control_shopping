@@ -9,12 +9,14 @@ import { ClearFormatCurrency, FormattedDate } from '../../scripts';
 import { usePostDocumentsCreate } from '../../../../hooks/product/usePostDocumentsCreate';
 import { Spinner } from 'react-bootstrap';
 import { TextC } from '../../../../components/Typography';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const FormCreate = () => {
 
     const {createStudent, loading: loadingCreate } = usePostDocumentsCreate()
+    const navigate = useNavigate();
 
     const { register, handleSubmit, setValue, getValues, reset, formState:{ errors } } = useForm({
         resolver: yupResolver(Product),
@@ -44,6 +46,9 @@ const FormCreate = () => {
 
             */
             console.log("Cadastro feito com suceso !", uid);
+
+            
+            navigate('/notifications/create')
             
         }else{
             console.log('Error: ', message);

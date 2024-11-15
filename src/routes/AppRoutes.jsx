@@ -29,6 +29,10 @@ const AppContent = () => {
                         path='/product/update'
                         element={<Pages.ProductUpdate />}
                     /> 
+                    <Route 
+                        path='/notifications/create'
+                        element={<Pages.NotificationsCreate />}
+                    /> 
                 </Routes>
             </main>
         </>

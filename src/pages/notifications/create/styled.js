@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Theme } from "../../../../theme";
+import { Theme } from "../../../theme";
 
 
 const StyledButton = css`
@@ -74,87 +74,74 @@ const outlineStyles = css`
 `;
 
 
-export const Container = styled.div`
+export  const Container = styled.div`
+    border: 1px solid red;
+    width: 100%;
+        max-width: 500px;
+        min-width: 320px;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+
+    
+`;
+export  const Header = styled.div`
     /* border: 1px solid red; */
     width: 100%;
-    min-width: 330px;
-    height: 100%;
-    padding: .1rem;
-    overflow: auto;
+    display: flex;
+    align-items: center;
+    padding: .8rem;
+    & span {
+        color: ${Theme.Colors.green800};
+    }
 `;
-export const SpinnerCustom = styled.div`
+export  const Body = styled.div`
     /* border: 1px solid red; */
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: .8rem;
+    & span {
+        text-align: center;
+        color: ${Theme.Colors.green800};
+    }
+`;
+
+export  const WrapImg = styled.div`
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    background-color: ${Theme.Colors.black800};
-    & span {
-        color: ${Theme.Colors.yellow600};
-    }
-    @media (max-width: 320px) {
-
-        & :last-child {
-            /* Retirar o texto */
-            display: none;
-        }
+    & img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
     }
 
 `;
-export const Form = styled.form`
+
+export  const Footer = styled.div`
     /* border: 1px solid red; */
     width: 100%;
-    /* height: 90%; */
     display: flex;
-    flex-direction: column;
     gap: 16px;
-
-    & label {
-        display: inline-block;
-        margin: 0;
-        font-size: .8em;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        line-height: 1.5;
-        color: ${Theme.Colors.green800};
-    }
-    & input:focus, .input-group input:focus, select:focus {
-        border-color: ${Theme.Colors.green800};
-        box-shadow: none;
-        & svg {
-            color: ${Theme.Colors.green800};
-        }
-    }
-`;
-export const WrapFields = styled.div`
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 100%; 
-
-`;
-export const WrapButtons = styled.div`
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 48px;
-    display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 16px;
-    padding: .2rem;
-
+    justify-content: center ;
+    padding: .8rem;
 `;
-export const ButtonCancel = styled.button`
+
+export const ButtonOutline = styled.button`
     ${StyledButton}
     ${outlineStyles}
 
 `;
-export const ButtonRegister = styled.button`
+export const ButtonContainer = styled.button`
     ${StyledButton}
     ${containedStyles}
 `;
-

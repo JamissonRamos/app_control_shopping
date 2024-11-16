@@ -94,13 +94,12 @@ export  const Container = styled.div`
     width: 100%;
         max-width: 500px;
         min-width: 320px;
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 1rem;
-
+    padding: 1rem;
+    overflow: auto;
     
 `;
 export  const Header = styled.div`
@@ -112,10 +111,10 @@ export  const Header = styled.div`
     padding: .8rem;
     & svg {
         font-size: 1.5em;
-        color: ${Theme.Colors.green800};
+        color: ${Theme.Colors.red700};
     }
     & span {
-        color: ${Theme.Colors.green800};
+        color: ${Theme.Colors.red600};
     }
 `;
 export  const Body = styled.div`

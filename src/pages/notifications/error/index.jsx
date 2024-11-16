@@ -3,7 +3,7 @@ import { TextC } from '../../../components/Typography';
 import { Theme } from '../../../theme';
 import { useNavigate } from 'react-router-dom';
 
-const NotificationsCreate = () => {
+const NotificationsError = () => {
     const navigate = useNavigate();
 
     return (
@@ -11,13 +11,15 @@ const NotificationsCreate = () => {
         <S.Container>
             <div>
                 <S.Header>
-                    <Theme.Icons.MdCheckCircleOutline />
-                    <TextC.Title level={2}> Sucesso </TextC.Title>
+                    <Theme.Icons.MdCancel />
+                    <TextC.Title level={2}> Error </TextC.Title>
                 </S.Header>
                 <S.Body>
-                    <TextC.Body level={2}> Seu cadastro foi efetuado com sucesso!  </TextC.Body>
+                    <TextC.Body level={1}> 
+                        Todos nós cometemos enganos, e desta vez foi conosco. Por favor, tente novamente. Se o problema persistir, entre em contato com o administrador do sistema.
+                    </TextC.Body>
                     <S.WrapImg>
-                        <img src={Theme.ImgC.Success} alt="sucesso" />
+                        <img src={Theme.ImgC.Error} alt="sucesso" />
                     </S.WrapImg>
                 </S.Body>
                 <S.Footer>
@@ -39,4 +41,4 @@ const NotificationsCreate = () => {
     )
 }
 
-export default NotificationsCreate
+export default NotificationsError

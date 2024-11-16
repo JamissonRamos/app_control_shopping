@@ -41,6 +41,7 @@ export const Icons = {
     MdModeEdit:                 MD.MdModeEdit,
     MdSaveAlt:                  MD.MdSaveAlt,
     MdList:                     MD.MdList,
+    MdCheckCircleOutline:       MD.MdCheckCircleOutline,
     RiArrowDownSFill:           RiIcons.RiArrowDownSFill,
     RiArrowUpSFill:             RiIcons.RiArrowUpSFill,
     RiSendPlaneFill:            RiIcons.RiSendPlaneFill,

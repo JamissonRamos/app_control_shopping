@@ -33,6 +33,10 @@ const AppContent = () => {
                         path='/notifications/create'
                         element={<Pages.NotificationsCreate />}
                     /> 
+                    <Route 
+                        path='/notifications/error'
+                        element={<Pages.NotificationsError />}
+                    /> 
                 </Routes>
             </main>
         </>

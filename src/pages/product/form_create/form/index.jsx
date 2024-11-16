@@ -39,20 +39,12 @@ const FormCreate = () => {
         const { success, uid, message } = result;
 
         if(success){
-            /* 
-                - direcionar para uma page de successo!
-                - levar nome do produto e mostra na page;
-                - podenso sendo redirecionado para novo cadastro ou home;
-
-            */
-            console.log("Cadastro feito com suceso !", uid);
-
-            
+            reset();
             navigate('/notifications/create')
             
         }else{
             console.log('Error: ', message);
-            
+            navigate('/notifications/error')
         }
         console.log(data);
     }

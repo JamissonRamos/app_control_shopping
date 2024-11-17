@@ -27,7 +27,6 @@ const Home = () => {
           <Button
             variant="success"
             onClick={() => navigate('/product/create')}
-
           > 
             <Theme.Icons.MdAddCircle />
             <span> Adicionar Item </span>  

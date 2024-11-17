@@ -3,6 +3,7 @@ import { Theme } from "../../theme";
 
 const ContainedStyles = css`
     width: 50%;
+    height: 100%;
     padding: 8px 12px;
     border-radius: 8px;
     box-shadow: none;
@@ -106,11 +107,11 @@ export const WrapText = styled.div`
 export const WrapButton = styled.div`
     /* border: 1px solid red; */
     width: 100%;
-    height: 38px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: .8rem;
+    padding: .2rem;
     margin-bottom: 2rem;
     & button {
         ${ContainedStyles}

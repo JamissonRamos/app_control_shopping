@@ -9,7 +9,7 @@ const NotificationsError = () => {
     return (
 
         <S.Container>
-            <div>
+            <S.Content>
                 <S.Header>
                     <Theme.Icons.MdCancel />
                     <TextC.Title level={2}> Error </TextC.Title>
@@ -36,7 +36,7 @@ const NotificationsError = () => {
                         <Theme.Icons.MdAddCircle />
                     </S.ButtonContainer>
                 </S.Footer>
-            </div>
+            </S.Content>
         </S.Container>
     )
 }

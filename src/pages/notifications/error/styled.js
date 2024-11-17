@@ -94,10 +94,17 @@ export  const Container = styled.div`
     width: 100%;
         max-width: 500px;
         min-width: 320px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    overflow: auto;
+    
+`;
+export  const Content = styled.div`
+    /* border: 1px solid red; */
     padding: 1rem;
     overflow: auto;
     
@@ -121,6 +128,7 @@ export  const Body = styled.div`
     /* border: 1px solid red; */
     width: 100%;
     display: flex;
+    /* height: 100%; */
     flex-direction: column;
     gap: 16px;
     align-items: center;
@@ -129,11 +137,12 @@ export  const Body = styled.div`
         text-align: center;
         color: ${Theme.Colors.grey800};
     }
+    overflow: auto;
 `;
 export  const WrapImg = styled.div`
     /* border: 1px solid red; */
     width: 100%;
-    height: 80%;
+    /* height: 60%; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,6 +159,7 @@ export  const Footer = styled.div`
     /* border: 1px solid red; */
     width: 100%;
     display: flex;
+    /* height: 40%; */
     gap: 16px;
     align-items: center;
     justify-content: center;

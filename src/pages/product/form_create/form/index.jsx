@@ -46,7 +46,6 @@ const FormCreate = () => {
             console.log('Error: ', message);
             navigate('/notifications/error')
         }
-        console.log(data);
     }
 
     return (
@@ -78,7 +77,9 @@ const FormCreate = () => {
                 </S.WrapFields>
 
                 <S.WrapButtons>
-                    <S.ButtonCancel>
+                    <S.ButtonCancel
+                        onClick={() =>  navigate('/home')}
+                    >
                         <span>Cancelar</span>
                         <Theme.Icons.MdCancel />
                     </S.ButtonCancel>
@@ -96,7 +97,6 @@ const FormCreate = () => {
                                     role="status"
                                     aria-hidden="true"
                                 />
-                                <span > Salvando... </span>
                             </> :
                             <>
                                 <Theme.Icons.MdSaveAlt />

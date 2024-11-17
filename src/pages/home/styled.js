@@ -51,24 +51,22 @@ export const Container = styled.div`
     padding: 1.2rem 0;
 `;
 export const CardsHeader = styled.div`
-    /* border: 1px solid red; */
+    border: 1px solid red;
     width: 100%;
         max-width: 500px;
         min-width: 320px;
-    height: 12%;
+    /* height: 12%; */
     display: flex;
     justify-content: flex-start;
     gap: 16px;
-    padding: .4rem ;
+    /* padding: .4rem ; */
     margin-bottom: 1rem;
 
 `;
 export const Card = styled.div`
     /* border: 1px solid red; */
-    /* width: 300px;    */
-    /* max-width: 200px; */
     min-width: 150px;
-    height: 100%;
+    max-height: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;

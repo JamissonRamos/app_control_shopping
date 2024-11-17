@@ -11,7 +11,6 @@ const Home = () => {
 
   return (
     <S.Container>
-
       <S.CardsHeader>
         <S.Card>
           <S.ItemIcon>

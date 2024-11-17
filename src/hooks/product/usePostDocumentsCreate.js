@@ -13,7 +13,7 @@ export const usePostDocumentsCreate = () => {
         //setErrorCreate(null);
 
         try {
-            const result = await collectionCreat(data ); 
+            const result = await x(data ); //collectionCreate
             const {success, uid, message } = result;
 
             if(success){

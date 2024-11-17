@@ -36,7 +36,7 @@ const FormCreate = () => {
         data.quantityPurchase = Number(data.quantityPurchase);
         
         const result = await createStudent(data)
-        const { success, uid, message } = result;
+        const { success, message } = result;
 
         if(success){
             reset();

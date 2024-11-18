@@ -8,32 +8,25 @@ const StyledButton = css`
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 9px 0;
+    padding: 9px 8px;
     border-radius: 4px;
     background-color: transparent;
     border: .75px solid;
     cursor: pointer;
     transition: background-color 0.4s ease, color 0.4s;
     @media (max-width: 768px) {
-        max-width: 40%;
-        padding: 6px 0;
+        padding: 6px 8px;
     }
 `;
 
-const StyledEdit = css`
+const StyledContained = css`
     color: ${Theme.Colors.green800};
     &:hover{
         background-color: ${Theme.Colors.green800};
         color: ${Theme.Colors.white800};
     }
 `;
-const StyledDelete = css`
-    color: ${Theme.Colors.red800};
-    &:hover{
-        background-color: ${Theme.Colors.red800};
-        color: ${Theme.Colors.white800};
-    }
-`;
+
 
 export const Content = styled.div`
     /* border: 1px solid red; */
@@ -44,16 +37,12 @@ export const Content = styled.div`
     padding: .8rem; //Quando gerar barra de rolagem;
 `;
 export const CardItem = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: .4rem; // definir um espaço de elemento;
-    border: .75px solid ${Theme.Colors.grey400};
-    /* box-shadow: ${Theme.Shadow.sh600}; */
-    border-radius: 8px;
-
 `;
 export const WrapItem = styled.div`
     width: 100%;
@@ -117,26 +106,9 @@ export const ValuePurchase = styled.div`
         text-align: center;
     }
 `;
-export const WrapButtons = styled.div`
-    /* border: 1px solid blue; */
-    width: 100%;
-    flex: 2;
-    display: flex;
-    justify-content: space-around;
-    gap: .8rem;
-    @media (max-width: 768px) {
-        justify-content: center;
-    }
 
-
-`;
-export const WrapButtonDelete = styled.button`
-    ${StyledButton}
-    ${StyledDelete}
-    border-color: ${Theme.Colors.red800};
-`;
-export const WrapButtonEdit = styled.button`
-    ${StyledButton}
-    ${StyledEdit}
+export const WrapButton = styled.button`
+    ${StyledButton};
+    ${StyledContained};
     border-color: ${Theme.Colors.green800};
 `;

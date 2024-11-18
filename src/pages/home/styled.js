@@ -122,6 +122,49 @@ export const Content = styled.div`
     /* border: 1px solid red; */
     width: 100%;
     height: 60%;
-    overflow: auto
+    overflow: auto;
 `;
+
+export const Empty = styled.div`
+    /* border: 1px solid blue; */
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+    color: ${Theme.Colors.green800};
+    @media (max-width: 425px) {
+        height: 300px;
+        padding: 0;
+        flex: none;
+    }
+`;
+
+export const SpinnerCustom = styled.div`
+    /* border: 1px solid red; */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: ${Theme.Colors.black800};
+    & span {
+        color: ${Theme.Colors.yellow600};
+    }
+    @media (max-width: 320px) {
+
+        & :last-child {
+            /* Retirar o texto */
+            display: none;
+        }
+    }
+
+`;
+
 

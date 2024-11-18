@@ -1,13 +1,45 @@
-import { Button } from 'react-bootstrap'
+import { Button, Spinner } from 'react-bootstrap'
 import * as S from './styled'
 import { Theme } from '../../theme'
 import { TextC } from "../../components/Typography"
 import CardsList from './components/cards_list'
 import { useNavigate } from 'react-router-dom'
+import { useGetDocuments } from '../../hooks/product/useGetDocuments'
+import { useEffect, useState } from 'react'
 
 
 const Home = () => {
+  const [registered, setRegistered] = useState(null);
   const navigate = useNavigate();
+
+  const{ getDocuments, loading } = useGetDocuments()
+
+  const fetchDocuments = async () => {
+    /* 
+      - Erro na chamada, verifica o motivo do error;
+    */
+    const result = await getDocuments();
+    const { success, data, message} = result;
+
+    if(success)
+    {
+      setRegistered( data )
+    }else{
+      console.log("Error: ", message);
+      
+    }
+  }
+
+  useEffect(() => {
+    fetchDocuments();  // Chama a função ao renderizar o componente
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+
+console.log('registered: ', registered);
+
+
+
 
   return (
     <S.Container>
@@ -34,11 +66,34 @@ const Home = () => {
       </S.WrapButton>
 
         <S.Content>
-          {/* 
-            -Ajusta para mostra msg não tem algo ou lista de itens;
-            -Passar o data de lista para mostra na tela;
-          */}
-          <CardsList />
+        {
+            loading &&
+            <S.SpinnerCustom>
+              <Spinner
+                  as="span"
+                  animation="border"
+                  role="status"
+                  aria-hidden="true"
+              />
+              <span className="sr-only">Carregando os dados...</span>
+            </S.SpinnerCustom>
+        }
+        
+        {
+          registered && registered.length === 0
+          ? 
+            <S.Empty>
+              <TextC.Display level={2} >
+                  Nenhum cadastro
+              </TextC.Display>
+              <TextC.Body level={2}>
+                  Não encontramos nenhum cadastro em nossa base de dados.
+              </TextC.Body>
+            </S.Empty> 
+          :   
+            <CardsList data={registered}/>
+        }
+
         </S.Content>
 
 

@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 
 const Home = () => {
   const [registered, setRegistered] = useState(null);
+  const [subTotal, setSubTotal] = useState(null);
   const navigate = useNavigate();
 
   const{ getDocuments, loading } = useGetDocuments()
@@ -20,10 +21,21 @@ const Home = () => {
     */
     const result = await getDocuments();
     const { success, data, message} = result;
+    console.log(data);
+    
 
     if(success)
     {
       setRegistered( data )
+
+      const totalValuePurchase = data.reduce((accumulator, current) => {
+        return accumulator + (current.valuePurchase || 0);
+    }, 0);
+
+    console.log(`Total Value Purchase: ${totalValuePurchase}`);
+
+
+    setSubTotal(handleFormatCurrency(totalValuePurchase))
     }else{
       console.log("Error: ", message);
       
@@ -35,7 +47,13 @@ const Home = () => {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
-
+    
+  const handleFormatCurrency = (value) => {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    }).format(value);
+  }
 console.log('registered: ', registered);
 
 
@@ -43,14 +61,14 @@ console.log('registered: ', registered);
 
   return (
     <S.Container>
-      <S.CardsHeader>
+      <S.CardsHeader >
         <S.Card>
           <S.ItemIcon>
             <Theme.Icons.FaDollarSign />
           </S.ItemIcon>
           <S.WrapText>
             <TextC.Title level={1}> Valor Total </TextC.Title>
-            <TextC.Title level={1}>R$: 1000.000.000, 00</TextC.Title>
+            <TextC.Title level={1}>{subTotal}</TextC.Title>
           </S.WrapText>
         </S.Card>
       </S.CardsHeader>
@@ -91,12 +109,10 @@ console.log('registered: ', registered);
               </TextC.Body>
             </S.Empty> 
           :   
-            <CardsList data={registered}/>
+            <CardsList data={registered} setSubTotal={setSubTotal}/>
         }
 
         </S.Content>
-
-
     </S.Container>
   )
 }

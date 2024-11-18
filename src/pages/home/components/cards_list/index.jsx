@@ -4,8 +4,9 @@ import { TextC } from "../../../../components/Typography";
 import { Theme } from "../../../../theme";
 import { useNavigate } from "react-router-dom";
 
-const CardsList = ({data}) => {
+const CardsList = ({data, setSubTotal}) => {
     const navigate = useNavigate();
+    // const {subTotal, setSubTotal} = useState(0);
     
     const handleFormatCurrency = (value) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -19,6 +20,7 @@ const CardsList = ({data}) => {
         <S.Content>
             {
                 data && data.map(({datePurchase, productName, valuePurchase}, i) => (
+
                     <S.WrapButton
                         key={i}
                         onClick={() => navigate('/product')}

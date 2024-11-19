@@ -26,7 +26,7 @@ const AppContent = () => {
                         element={<Pages.ProductCreate />}
                     /> 
                     <Route 
-                        path='/product/update'
+                        path='/product/update/:uid?'
                         element={<Pages.ProductUpdate />}
                     /> 
                     <Route 

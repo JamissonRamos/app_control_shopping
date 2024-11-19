@@ -1,16 +1,16 @@
 import * as S from './styled'
-import Header from './components/header'
+import Header from './header'
+import FormUpdate from './form'
 
-const Product = ({uid}) => {
-   
+const ProductUpdate = () => {
+    
 
     return (
         <S.Container>
             <Header />
-            update
-
+            <FormUpdate/>
         </S.Container>
     )
 }
 
-export default Product
+export default ProductUpdate

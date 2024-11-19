@@ -1,13 +1,10 @@
 import { useState } from "react";
 import * as S from './styled';
 import { TextC } from "../../../../components/Typography";
-import { Theme } from "../../../../theme";
 import { useNavigate } from "react-router-dom";
 
-const CardsList = ({data, setSubTotal}) => {
-    const navigate = useNavigate();
-    // const {subTotal, setSubTotal} = useState(0);
-    
+const CardsList = ({data}) => {
+    const navigate = useNavigate();  
     const handleFormatCurrency = (value) => {
         return new Intl.NumberFormat('pt-BR', {
             style: 'currency',
@@ -15,15 +12,20 @@ const CardsList = ({data, setSubTotal}) => {
         }).format(value);
     }
 
+    
+    const handleShowFormUpdate = (uid) => { 
+       // navigate('/responsibleStudents/responsibleList/', { state: { uid: uid } });
+        navigate('/product/update/', { state: { uid: uid } })
+    };
     return (
 
         <S.Content>
             {
-                data && data.map(({datePurchase, productName, valuePurchase}, i) => (
+                data && data.map(({uid, datePurchase, productName, valuePurchase}, i) => (
 
                     <S.WrapButton
                         key={i}
-                        onClick={() => navigate('/product')}
+                        onClick={() => handleShowFormUpdate(uid)}
                     >
                         <S.CardItem >
                             <S.WrapItem>

@@ -21,19 +21,13 @@ const Home = () => {
     */
     const result = await getDocuments();
     const { success, data, message} = result;
-    console.log(data);
-    
 
     if(success)
     {
       setRegistered( data )
-
       const totalValuePurchase = data.reduce((accumulator, current) => {
         return accumulator + (current.valuePurchase || 0);
     }, 0);
-
-    console.log(`Total Value Purchase: ${totalValuePurchase}`);
-
 
     setSubTotal(handleFormatCurrency(totalValuePurchase))
     }else{
@@ -54,10 +48,6 @@ const Home = () => {
         currency: 'BRL',
     }).format(value);
   }
-console.log('registered: ', registered);
-
-
-
 
   return (
     <S.Container>

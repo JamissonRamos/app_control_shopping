@@ -1,9 +1,24 @@
+import { useState } from 'react';
 import { Theme } from '../../../../../theme';
 import { CapitalizedValue, FormatCurrency } from '../../../scripts';
 import * as S from './styled'
 import { Col, Form, Row } from 'react-bootstrap'
+import DeleteData from '../../../../../components/alert_delete';
 
 const Fields = ({register, setValue, errors, uid}) => {
+    const [showModalDelete, setShowModalDelete] = useState(false);
+    
+
+    // const handleCloseModalDelete = () => {
+    //     setShowModalDelete(false);
+    // }
+
+    const handleShowModalDelete = () => { 
+
+
+        setShowModalDelete((prevState) => !prevState);
+    };
+
 
     const handleChange = (e) => {
         let fieldName = e.target.name;
@@ -19,7 +34,8 @@ const Fields = ({register, setValue, errors, uid}) => {
         setValue(fieldName, capitalized)
     }
 
-
+    console.log(showModalDelete);
+    
     return (
         <S.Content>
             <Row className="mb-2 px-2 ">
@@ -114,13 +130,23 @@ const Fields = ({register, setValue, errors, uid}) => {
 
             <S.WrapButtonDelete>
                 <S.ButtonDelete
-                    onClick={() =>  console.log('deletar:', uid)
-                    }
+                    type='button'
+                    onClick={handleShowModalDelete}
                 >
                     <span>Excluir</span>
                     <Theme.Icons.MdDelete />
                 </S.ButtonDelete>
             </S.WrapButtonDelete>
+            
+            {
+
+                showModalDelete && 
+                    <DeleteData
+                        handleShowModalDelete={handleShowModalDelete}/>
+
+            }
+
+            {/*  */}
         </S.Content>
     )
 }

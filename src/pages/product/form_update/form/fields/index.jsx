@@ -3,7 +3,7 @@ import { CapitalizedValue, FormatCurrency } from '../../../scripts';
 import * as S from './styled'
 import { Col, Form, Row } from 'react-bootstrap'
 
-const Fields = ({register, setValue, errors}) => {
+const Fields = ({register, setValue, errors, uid}) => {
 
     const handleChange = (e) => {
         let fieldName = e.target.name;
@@ -114,7 +114,7 @@ const Fields = ({register, setValue, errors}) => {
 
             <S.WrapButtonDelete>
                 <S.ButtonDelete
-                    onClick={() =>  console.log('deletar')
+                    onClick={() =>  console.log('deletar:', uid)
                     }
                 >
                     <span>Excluir</span>

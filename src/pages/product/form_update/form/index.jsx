@@ -5,30 +5,60 @@ import { Theme } from '../../../../theme'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Product } from '../../../../contants/validations/product'
-import { ClearFormatCurrency, FormattedDate } from '../../scripts';
+import { ClearFormatCurrency, FormattedDate, ConvertDate } from '../../scripts';
 import { usePostDocumentsCreate } from '../../../../hooks/product/usePostDocumentsCreate';
 import { Spinner } from 'react-bootstrap';
 import { TextC } from '../../../../components/Typography';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
-const FormUpdate = () => {
-
+const FormUpdate = ({uid}) => {
+    const [ records, setRecords] = useState(null);
     const {createStudent, loading: loadingCreate } = usePostDocumentsCreate()
     const navigate = useNavigate();
 
+    const getFromLocalStorage = () => {
+        // Obtém a string JSON do localStorage
+        const jsonString = localStorage.getItem('productUpdateItem');
+        // Se a string não for nula, converte de volta para um objeto
+        if( jsonString ){
+            const result = JSON.parse(jsonString) 
+            setRecords(result)
+        }else {
+            console.log('Sem dados');
+        }
+    }
+    
     const { register, handleSubmit, setValue, getValues, reset, formState:{ errors } } = useForm({
-        resolver: yupResolver(Product),
-        defaultValues: {
-            datePurchase: new Date().toISOString().split('T')[0], // Data de hoje
-            quantityPurchase: 1,
-            unitMeasure: "",
-            valuePurchase: 'R$ 0,00',
-        },
-
+        resolver: yupResolver(Product)
     });
 
-    
+    //Pegar os dados no local storage
+    useEffect(() => {
+        getFromLocalStorage();
+    }, []); // Executa apenas uma vez ao montar o componente
+
+    //Passar os dados para os campos
+    useEffect(() => {
+        if (records) {
+            Object.keys(records).forEach(key => {
+                if (key === 'datePurchase') {
+                    const newDate = ConvertDate( records[key])                   
+                    setValue(key, newDate);
+                }else if (key === 'valuePurchase') {
+                    const newValuePurchase = new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL',
+                    }).format( records[key]);                  
+                    setValue(key, newValuePurchase);
+                }else {
+                    setValue(key, records[key]);
+                }
+            });
+        }
+    }, [records]); // Este useEffect depende de 'records'
+
     const handleOnSubmit = async (data) => {
         data.datePurchase = FormattedDate(data.datePurchase);
         data.valuePurchase = ClearFormatCurrency(data.valuePurchase);
@@ -72,6 +102,7 @@ const FormUpdate = () => {
                         setValue={setValue}
                         getValues={getValues}
                         errors={errors}
+                        uid={uid}
                     />
                 </S.WrapFields>
                 
@@ -97,8 +128,8 @@ const FormUpdate = () => {
                                 />
                             </> :
                             <>
-                                <Theme.Icons.MdSaveAlt />
-                                <span>Salvar</span>
+                                <Theme.Icons.MdUpdate />
+                                <span>Atualizar</span>
                             </>
                         } 
                     </S.ButtonRegister>

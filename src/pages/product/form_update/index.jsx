@@ -3,7 +3,6 @@ import Header from './header'
 import FormUpdate from './form'
 
 const ProductUpdate = () => {
-    
 
     return (
         <S.Container>

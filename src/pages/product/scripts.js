@@ -43,3 +43,9 @@ export const FormattedDate = (birthDate) => {
     
     return `${day}/${month}/${year}`;
 }
+
+export const ConvertDate = (dateString) => {
+    // Função para converter a data YYYY-MM-DD
+    const parts = dateString.split("/");
+    return `${parts[2]}-${parts[1]}-${parts[0]}`; // Retorna no formato "YYYY-MM-DD"
+};

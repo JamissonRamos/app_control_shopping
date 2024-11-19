@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const CardsList = ({data}) => {
     const navigate = useNavigate();  
+
     const handleFormatCurrency = (value) => {
         return new Intl.NumberFormat('pt-BR', {
             style: 'currency',
@@ -12,20 +13,22 @@ const CardsList = ({data}) => {
         }).format(value);
     }
 
-    
-    const handleShowFormUpdate = (uid) => { 
-       // navigate('/responsibleStudents/responsibleList/', { state: { uid: uid } });
-        navigate('/product/update/', { state: { uid: uid } })
+    const handleShowFormUpdate = (i) => { 
+        navigate('/product/update')
+        // Converte o objeto em uma string JSON
+        const jsonString  = JSON.stringify(data[i]);
+        // Salva a string JSON no localStorage
+        localStorage.setItem('productUpdateItem', jsonString );
     };
     return (
 
         <S.Content>
             {
-                data && data.map(({uid, datePurchase, productName, valuePurchase}, i) => (
+                data && data.map(({datePurchase, productName, valuePurchase}, i) => (
 
                     <S.WrapButton
                         key={i}
-                        onClick={() => handleShowFormUpdate(uid)}
+                        onClick={() => handleShowFormUpdate(i)}
                     >
                         <S.CardItem >
                             <S.WrapItem>
@@ -59,20 +62,6 @@ const CardsList = ({data}) => {
                                     </S.ValuePurchase>
                                 </S.WrapDateValue>
                             </S.WrapItem>
-
-                            {/* <S.WrapButtons>
-
-                                <S.WrapButtonDelete>
-                                    <Theme.Icons.MdDelete />
-                                </S.WrapButtonDelete>
-
-                                <S.WrapButtonEdit
-                                    onClick={() => navigate('/product')}
-                                >
-                                    <Theme.Icons.MdEdit />
-                                </S.WrapButtonEdit>
-
-                            </S.WrapButtons> */}
                         </S.CardItem>
                     </S.WrapButton>
                 ))

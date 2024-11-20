@@ -4,21 +4,41 @@ import { CapitalizedValue, FormatCurrency } from '../../../scripts';
 import * as S from './styled'
 import { Col, Form, Row } from 'react-bootstrap'
 import DeleteData from '../../../../../components/alert_delete';
+import { usePostDocumentDelete } from '../../../../../hooks/product/usePostDocumentDelete';
 
 const Fields = ({register, setValue, errors, uid}) => {
+    const uidDelete = uid || false;
     const [showModalDelete, setShowModalDelete] = useState(false);
+    /* 
+        - Passar função de delete para o modal;
+    */
+        console.log('uid: ', uidDelete);
+        
+        const {documentsDelete, loading } = usePostDocumentDelete();
+
+        const handleDeleteItem = async () => {
+            const result = await documentsDelete(uidDelete)
+            const { success, message} = result;
     
+            if(success){
+                console.log('excluiu com sucess');
+                
+                handleItemDelete()
+    
+            }else{
+                console.log('Deu erro: ', message);
+            }
+        }
 
-    // const handleCloseModalDelete = () => {
-    //     setShowModalDelete(false);
-    // }
-
-    const handleShowModalDelete = () => { 
 
 
+    const handleItemDelete = () => { 
         setShowModalDelete((prevState) => !prevState);
     };
 
+    const handleShowModalDelete = () => { 
+        setShowModalDelete((prevState) => !prevState);
+    };
 
     const handleChange = (e) => {
         let fieldName = e.target.name;
@@ -142,7 +162,8 @@ const Fields = ({register, setValue, errors, uid}) => {
 
                 showModalDelete && 
                     <DeleteData
-                        handleShowModalDelete={handleShowModalDelete}/>
+                        handleShowModalDelete={handleShowModalDelete}
+                        handleDeleteItem={handleDeleteItem}/>
 
             }
 

@@ -3,10 +3,10 @@ import { Theme } from '../../theme'
 import { TextC } from '../Typography'
 import { Button } from 'react-bootstrap'
 
-const DeleteData = ({handleShowModalDelete}) => {
+const DeleteData = ({handleShowModalDelete, handleDeleteItem}) => {
 
-    const handleDelete = async (id, uid) => {
-        // handleDeleteData(id, uid);
+    const handleDelete = async () => {
+        handleDeleteItem();
         handleShowModalDelete()
     }
     return (
@@ -41,7 +41,7 @@ const DeleteData = ({handleShowModalDelete}) => {
                         <S.WrapButton>
                             <Button  
                                 variant="success"
-                                // onClick={() => handleDelete(id, uid)}
+                                onClick={() => handleDelete()}
                             >
                                 <span> Sim, Excluir Cadastro</span>
                             </Button>

@@ -6,16 +6,22 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Product } from '../../../../contants/validations/product'
 import { ClearFormatCurrency, FormattedDate, ConvertDate } from '../../scripts';
-import { usePostDocumentsCreate } from '../../../../hooks/product/usePostDocumentsCreate';
 import { Spinner } from 'react-bootstrap';
 import { TextC } from '../../../../components/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
-const FormUpdate = ({uid}) => {
+
+const FormUpdate = () => {
     const [ records, setRecords] = useState(null);
-    const {createStudent, loading: loadingCreate } = usePostDocumentsCreate()
+    const [ uidItem, setUidItem] = useState(null);
+
+    /* foi criado so para almenta ate criar o vdd de atualizar o dados  */
+    const loadingCreate = false;
+    
+
+
     const navigate = useNavigate();
 
     const getFromLocalStorage = () => {
@@ -46,7 +52,11 @@ const FormUpdate = ({uid}) => {
                 if (key === 'datePurchase') {
                     const newDate = ConvertDate( records[key])                   
                     setValue(key, newDate);
-                }else if (key === 'valuePurchase') {
+
+                }else if (key === 'uid') {               
+                    setUidItem(records[key]);
+                }
+                else if (key === 'valuePurchase') {
                     const newValuePurchase = new Intl.NumberFormat('pt-BR', {
                         style: 'currency',
                         currency: 'BRL',
@@ -58,6 +68,12 @@ const FormUpdate = ({uid}) => {
             });
         }
     }, [records]); // Este useEffect depende de 'records'
+
+    
+
+
+
+
 
     const handleOnSubmit = async (data) => {
         data.datePurchase = FormattedDate(data.datePurchase);
@@ -102,7 +118,7 @@ const FormUpdate = ({uid}) => {
                         setValue={setValue}
                         getValues={getValues}
                         errors={errors}
-                        uid={uid}
+                        uid={uidItem}
                     />
                 </S.WrapFields>
                 

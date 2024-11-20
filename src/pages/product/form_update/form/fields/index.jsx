@@ -33,7 +33,7 @@ const Fields = ({register, setValue, errors, uid}) => {
                 
                 // handleItemDelete()
                 handleShowModalDelete()
-                navigate('notifications/delete');
+                navigate('/notifications/delete');
             }else{
 
                 /* 
@@ -42,7 +42,7 @@ const Fields = ({register, setValue, errors, uid}) => {
                 */
                 console.log('Deu erro: ', message);
 
-                navigate('notifications/error');
+                navigate('/notifications/error');
             }
         }
 

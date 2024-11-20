@@ -5,10 +5,14 @@ import * as S from './styled'
 import { Col, Form, Row } from 'react-bootstrap'
 import DeleteData from '../../../../../components/alert_delete';
 import { usePostDocumentDelete } from '../../../../../hooks/product/usePostDocumentDelete';
+import { useNavigate } from 'react-router-dom';
 
 const Fields = ({register, setValue, errors, uid}) => {
-    const uidDelete = uid || false;
     const [showModalDelete, setShowModalDelete] = useState(false);
+    const uidDelete = uid || false;
+    const navigate = useNavigate();  
+
+    
     /* 
         - Passar função de delete para o modal;
     */
@@ -21,20 +25,30 @@ const Fields = ({register, setValue, errors, uid}) => {
             const { success, message} = result;
     
             if(success){
+                /* 
+                    - Passara o page de exclusão 
+                    - limpar form;
+                */
                 console.log('excluiu com sucess');
                 
-                handleItemDelete()
-    
+                // handleItemDelete()
+                handleShowModalDelete()
+                navigate('notifications/delete');
             }else{
+
+                /* 
+                    - Passsar a page de error;
+                    - limpar form;
+                */
                 console.log('Deu erro: ', message);
+
+                navigate('notifications/error');
             }
         }
 
-
-
-    const handleItemDelete = () => { 
-        setShowModalDelete((prevState) => !prevState);
-    };
+    // const handleItemDelete = () => { 
+    //     setShowModalDelete((prevState) => !prevState);
+    // };
 
     const handleShowModalDelete = () => { 
         setShowModalDelete((prevState) => !prevState);

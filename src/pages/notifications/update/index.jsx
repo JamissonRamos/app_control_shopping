@@ -17,7 +17,7 @@ const NotificationsUpdate = () => {
                 <S.Body>
                     <TextC.Body level={2}> Seu item foi atualizado com sucesso!  </TextC.Body>
                     <S.WrapImg>
-                        <img src={Theme.ImgC.Update } alt="sucesso" />
+                        <img src={Theme.ImgC.Update } alt="Update" />
                     </S.WrapImg>
                 </S.Body>
                 <S.Footer>

@@ -22,8 +22,6 @@ const FormUpdate = () => {
 
     const {UpdateProduct, loading} = usePostDocumentsUpdate();
 
-
-
     const getFromLocalStorage = () => {
         // Obtém a string JSON do localStorage
         const jsonString = localStorage.getItem('productUpdateItem');
@@ -52,7 +50,6 @@ const FormUpdate = () => {
                 if (key === 'datePurchase') {
                     const newDate = ConvertDate( records[key])                   
                     setValue(key, newDate);
-
                 }else if (key === 'uid') {               
                     setUidItem(records[key]);
                 }
@@ -69,6 +66,11 @@ const FormUpdate = () => {
         }
     }, [records]); // Este useEffect depende de 'records'
 
+    const handleClickCancel = () => {
+        // Exclui os dados do localStorage
+        localStorage.removeItem('productUpdateItem');
+        navigate('/home');
+    }
 
     const handleOnSubmit = async (data) => {
         data.datePurchase = FormattedDate(data.datePurchase);
@@ -80,17 +82,15 @@ const FormUpdate = () => {
         const { success, message } = result;
 
         if(success){
+            // Exclui os dados do localStorage
+            localStorage.removeItem('productUpdateItem');
             reset();
-            //Criar e repassar a page de update
             navigate('/notifications/update')
             
         }else{
             console.log('Error: ', message);
             navigate('/notifications/error')
-        }
-
-        console.log(data);
-        
+        } 
     }
 
     return (
@@ -124,7 +124,8 @@ const FormUpdate = () => {
                 
                 <S.WrapButtons>
                     <S.ButtonCancel
-                        onClick={() =>  navigate('/home')}
+                        type='button'
+                        onClick={handleClickCancel}
                     >
                         <span>Cancelar</span>
                         <Theme.Icons.MdCancel />

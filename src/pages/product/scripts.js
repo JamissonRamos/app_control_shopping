@@ -11,9 +11,6 @@ export const CapitalizedValue = (fieldValue) => {
 };
 
 export const FormatCurrency = (value) => {   
-    
-    console.log(value);
-    
     if(value === 0) return
     if(value === '') return
 

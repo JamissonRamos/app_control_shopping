@@ -52,7 +52,7 @@ export const Container = styled.div`
     padding: 1.2rem 0;
 `;
 export const CardsHeader = styled.div`
-    /* border: 1px solid red; */
+    border: 1px solid red;
     width: 100%;
         max-width: 500px;
         min-width: 320px;
@@ -66,7 +66,7 @@ export const CardsHeader = styled.div`
 `;
 export const Card = styled.div`
     /* border: 1px solid red; */
-    min-width: 150px;
+    min-width: 200px;
     max-height: 90%;
     display: flex;
     align-items: center;

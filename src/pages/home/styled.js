@@ -135,6 +135,9 @@ export const Empty = styled.div`
     justify-content: center;
     flex: 2;
     color: ${Theme.Colors.green800};
+    & span{
+        text-align: center;
+    }
     @media (max-width: 425px) {
         height: 300px;
         padding: 0;

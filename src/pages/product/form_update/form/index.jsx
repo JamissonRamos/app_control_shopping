@@ -10,19 +10,19 @@ import { Spinner } from 'react-bootstrap';
 import { TextC } from '../../../../components/Typography';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { usePostDocumentsUpdate } from '../../../../hooks/product/usePostDocumentsUpdate';
 
 
 
 const FormUpdate = () => {
     const [ records, setRecords] = useState(null);
     const [ uidItem, setUidItem] = useState(null);
-
-    /* foi criado so para almenta ate criar o vdd de atualizar o dados  */
-    const loadingCreate = false;
     
-
-
     const navigate = useNavigate();
+
+    const {UpdateProduct, loading} = usePostDocumentsUpdate();
+
+
 
     const getFromLocalStorage = () => {
         // Obtém a string JSON do localStorage
@@ -69,28 +69,28 @@ const FormUpdate = () => {
         }
     }, [records]); // Este useEffect depende de 'records'
 
-    
-
-
-
-
 
     const handleOnSubmit = async (data) => {
         data.datePurchase = FormattedDate(data.datePurchase);
         data.valuePurchase = ClearFormatCurrency(data.valuePurchase);
         data.quantityPurchase = Number(data.quantityPurchase);
+        data.uid = uidItem;
         
-        const result = await createStudent(data)
+        const result = await UpdateProduct(data)
         const { success, message } = result;
 
         if(success){
             reset();
+            //Criar e repassar a page de update
             navigate('/notifications/create')
             
         }else{
             console.log('Error: ', message);
             navigate('/notifications/error')
         }
+
+        console.log(data);
+        
     }
 
     return (
@@ -98,7 +98,7 @@ const FormUpdate = () => {
         <S.Container>
             
             {
-                loadingCreate &&
+                loading &&
                 <S.SpinnerCustom >
                     <Spinner
                         as="span"
@@ -107,7 +107,7 @@ const FormUpdate = () => {
                         role="status"
                         aria-hidden="true"
                     />
-                    <TextC.Title level={1} > Salvando os dados... </TextC.Title>
+                    <TextC.Title level={1} > Atualizando os dados... </TextC.Title>
                 </S.SpinnerCustom>
             }
 
@@ -131,9 +131,9 @@ const FormUpdate = () => {
                     </S.ButtonCancel>
                     <S.ButtonRegister
                         type='submit'
-                        disabled={loadingCreate ? true : false}
+                        disabled={loading ? true : false}
                     >
-                        { loadingCreate ?
+                        { loading ?
                             <>
                                 <Spinner
                                     as="span"

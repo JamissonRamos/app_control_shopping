@@ -7,7 +7,6 @@ const NotificationsDelete = () => {
     const navigate = useNavigate();
 
     return (
-
         <S.Container>
             <S.Content>
                 <S.Header>

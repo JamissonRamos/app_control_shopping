@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Theme } from '../../../../../theme';
 import { CapitalizedValue, FormatCurrency } from '../../../scripts';
 import * as S from './styled'
-import { Col, Form, Row } from 'react-bootstrap'
+import { Col, Form, Row, Spinner } from 'react-bootstrap'
 import DeleteData from '../../../../../components/alert_delete';
 import { usePostDocumentDelete } from '../../../../../hooks/product/usePostDocumentDelete';
 import { useNavigate } from 'react-router-dom';
@@ -11,44 +11,34 @@ const Fields = ({register, setValue, errors, uid}) => {
     const [showModalDelete, setShowModalDelete] = useState(false);
     const uidDelete = uid || false;
     const navigate = useNavigate();  
-
     
-    /* 
-        - Passar função de delete para o modal;
-    */
-        console.log('uid: ', uidDelete);
-        
-        const {documentsDelete, loading } = usePostDocumentDelete();
+    const {documentsDelete, loading: loadingDelete } = usePostDocumentDelete();
 
-        const handleDeleteItem = async () => {
-            const result = await documentsDelete(uidDelete)
-            const { success, message} = result;
-    
-            if(success){
-                /* 
-                    - Passara o page de exclusão 
-                    - limpar form;
-                */
-                console.log('excluiu com sucess');
-                
-                // handleItemDelete()
-                handleShowModalDelete()
-                navigate('/notifications/delete');
-            }else{
+    const handleDeleteItem = async () => {
+        const result = await documentsDelete(uidDelete)
+        const { success, message} = result;
 
-                /* 
-                    - Passsar a page de error;
-                    - limpar form;
-                */
-                console.log('Deu erro: ', message);
+        if(success){
+            /* 
+                - Passara o page de exclusão 
+                - limpar form;
+            */
+            console.log('excluiu com sucess');
+            
+            // handleItemDelete()
+            handleShowModalDelete()
+            navigate('/notifications/delete');
+        }else{
 
-                navigate('/notifications/error');
-            }
+            /* 
+                - Passsar a page de error;
+                - limpar form;
+            */
+            console.log('Deu erro: ', message);
+
+            navigate('/notifications/error');
         }
-
-    // const handleItemDelete = () => { 
-    //     setShowModalDelete((prevState) => !prevState);
-    // };
+    }
 
     const handleShowModalDelete = () => { 
         setShowModalDelete((prevState) => !prevState);
@@ -67,8 +57,6 @@ const Fields = ({register, setValue, errors, uid}) => {
         let capitalized = CapitalizedValue(fieldValue)
         setValue(fieldName, capitalized)
     }
-
-    console.log(showModalDelete);
     
     return (
         <S.Content>
@@ -167,6 +155,19 @@ const Fields = ({register, setValue, errors, uid}) => {
                     type='button'
                     onClick={handleShowModalDelete}
                 >
+
+                    {
+                        loadingDelete &&
+                            <Spinner
+                                as="span"
+                                size='sm'
+                                variant="light"
+                                animation="border"
+                                role="status"
+                                aria-hidden="true"
+                            />
+                    }
+                    
                     <span>Excluir</span>
                     <Theme.Icons.MdDelete />
                 </S.ButtonDelete>
@@ -174,14 +175,12 @@ const Fields = ({register, setValue, errors, uid}) => {
             
             {
 
-                showModalDelete && 
-                    <DeleteData
-                        handleShowModalDelete={handleShowModalDelete}
-                        handleDeleteItem={handleDeleteItem}/>
-
+            showModalDelete && 
+                <DeleteData
+                    handleShowModalDelete   =   {handleShowModalDelete}
+                    handleDeleteItem        =   {handleDeleteItem}
+                />
             }
-
-            {/*  */}
         </S.Content>
     )
 }

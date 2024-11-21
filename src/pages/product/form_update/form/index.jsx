@@ -82,7 +82,7 @@ const FormUpdate = () => {
         if(success){
             reset();
             //Criar e repassar a page de update
-            navigate('/notifications/create')
+            navigate('/notifications/update')
             
         }else{
             console.log('Error: ', message);

@@ -5,6 +5,7 @@ import ProductUpdate from "./product/form_update";
 import NotificationsCreate from "./notifications/create";
 import NotificationsError from "./notifications/error";
 import NotificationsDelete from "./notifications/delete";
+import NotificationsUpdate from "./notifications/update";
 
 export const Pages = {
     Splash,
@@ -13,7 +14,8 @@ export const Pages = {
     ProductUpdate,
     NotificationsCreate,
     NotificationsError,
-    NotificationsDelete
+    NotificationsDelete,
+    NotificationsUpdate
 
 
 }

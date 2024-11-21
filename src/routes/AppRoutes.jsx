@@ -42,6 +42,10 @@ const AppContent = () => {
                         path='/notifications/delete'
                         element={<Pages.NotificationsDelete />}
                     /> 
+                    <Route 
+                        path='/notifications/update'
+                        element={<Pages.NotificationsUpdate />}
+                    /> 
                 </Routes>
             </main>
         </>

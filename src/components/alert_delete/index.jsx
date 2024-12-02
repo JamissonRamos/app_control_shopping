@@ -9,6 +9,7 @@ const DeleteData = ({handleShowModalDelete, handleDeleteItem}) => {
         handleDeleteItem();
         handleShowModalDelete()
     }
+    
     return (
         <>
             <S.AlertDelete>

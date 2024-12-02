@@ -19,21 +19,10 @@ const Fields = ({register, setValue, errors, uid}) => {
         const { success, message} = result;
 
         if(success){
-            /* 
-                - Passara o page de exclusão 
-                - limpar form;
-            */
-            console.log('excluiu com sucess');
-            
-            // handleItemDelete()
+            console.log('excluiu com sucesso');
             handleShowModalDelete()
             navigate('/notifications/delete');
         }else{
-
-            /* 
-                - Passsar a page de error;
-                - limpar form;
-            */
             console.log('Deu erro: ', message);
 
             navigate('/notifications/error');

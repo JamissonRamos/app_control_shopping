@@ -31,7 +31,7 @@ const firebaseConfigs = {
 */
 
 // Inicializa o Firebase baseado no ambiente desejado
-const environment = "dbPrimary"; // ou "dbSecondary"
+const environment = "dbSecondary"; // ou "dbSecondary"
 const firebaseConfig = firebaseConfigs[environment];
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

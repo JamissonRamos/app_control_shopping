@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:dbPrimary": "firebase use dbPrimary && firebase deploy",
+    "deploy:dbSecondary": "firebase use dbSecondary && firebase deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

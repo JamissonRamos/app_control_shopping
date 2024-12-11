@@ -1,5 +1,10 @@
 {
   "projects": {
-    "default": "app-control-shopping"
-  }
+    "default": "app-control-shopping",
+    "app-control-shopping": "app-control-shopping",
+    "dbPrimary": "app-control-shopping",
+    "dbSecondary": "app-control-shopping"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+
+    "dev": "vite --mode development",
+    "build": "vite build --mode production",
+    "preview": "vite preview --mode production",
     "lint": "eslint .",
-    "preview": "vite preview",
     "deploy:dbPrimary": "firebase use dbPrimary && firebase deploy",
     "deploy:dbSecondary": "firebase use dbSecondary && firebase deploy"
   },

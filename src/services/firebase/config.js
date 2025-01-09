@@ -3,44 +3,52 @@ import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
+// Determine o ambiente a partir do .env
+const environment = import.meta.env.VITE_ENVIRONMENT || 'development';
+
+console.log('environment', environment);
+
 const firebaseConfigs = {
-    // dbPrimary: {
-    //     apiKey: "AIzaSyCUjqWxY389z6vK_uVuVO9Jv6lejkjV-YI",
-    //     authDomain: "app-control-shopping.firebaseapp.com",
-    //     projectId: "app-control-shopping",
-    //     storageBucket: "app-control-shopping.firebasestorage.app",
-    //     messagingSenderId: "541756049827",
-    //     appId: "1:541756049827:web:cf744ebb65ea4100077216",
-    //     measurementId: "G-H53WWR4K5C"
-    // },
-    // dbSecondary: {
-    //     apiKey: "AIzaSyB6o4L4Ofy1FGhAfG4UV7gEnTrGZVNvgQc",
-    //     authDomain: "app-control-shopping-6b41b.firebaseapp.com",
-    //     projectId: "app-control-shopping-6b41b",
-    //     storageBucket: "app-control-shopping-6b41b.firebasestorage.app",
-    //     messagingSenderId: "794967051218",
-    //     appId: "1:794967051218:web:667c322bbad382a57e160b",
-    //     measurementId: "G-EECDKLVGL3"
-    // }
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+    development: {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.VITE_FIREBASE_APP_ID,
+        measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+    },
+    production: {
+        apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+        storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+        messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+        appId: import.meta.env.VITE_FIREBASE_APP_ID,
+        measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+    }
 };
 
 
+console.log('Firebase Config:', firebaseConfigs[environment]);
+
 /* 
-    - dbPrimary = Firebase Jamisson;
-    - dbSecondary = Firebase Junior;
+    - dev = Firebase Jamisson;
+    - prod = Firebase Junior;
 */
 
-// Inicializa o Firebase baseado no ambiente desejado
-const environment = "dbSecondary"; // ou "dbSecondary"
-const firebaseConfig = firebaseConfigs[environment];
-const app = initializeApp(firebaseConfig);
+// Obtenha a configuração correta com base no ambiente
+const config = firebaseConfigs[environment];
+console.log('config', config);
+
+
+// Verifique se todas as variáveis estão definidas
+for (const key in config) {
+    if (!config[key]) {
+        throw new Error(`Variável de ambiente não definida para ${environment}: ${key}`);
+    }
+}
+const app = initializeApp(config);
 const analytics = getAnalytics(app);
 const db = getFirestore(app)
 const auth = getAuth(app);

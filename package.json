@@ -4,18 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-
-    "dev": "vite --mode development",
-    "build": "vite build --mode production",
-    "preview": "vite preview --mode production",
-    "lint": "eslint .",
-    "deploy:dbPrimary": "firebase use dbPrimary && firebase deploy",
-    "deploy:dbSecondary": "firebase use dbSecondary && firebase deploy"
+    "dev": "vite --mode dev",
+    "build": "vite build",
+    "serve": "vite preview",
+    "dev:prod": "vite --mode prod",
+    "dev:dev": "vite --mode dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "bootstrap": "^5.3.3",
-    "firebase": "^11.0.1",
+    "firebase": "^11.1.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",
@@ -31,6 +29,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "cross-env": "^7.0.3",
     "eslint": "^9.13.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",

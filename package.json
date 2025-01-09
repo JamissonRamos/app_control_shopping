@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --mode dev",
-    "build": "vite build",
-    "serve": "vite preview",
-    "dev:prod": "vite --mode prod",
-    "dev:dev": "vite --mode dev"
+    "dev":              "vite --mode dev",
+    "build":            "vite build",
+    "serve":            "vite preview",
+    "dev:prod":         "vite --mode prod",
+    "dev:development":  "vite --mode development"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

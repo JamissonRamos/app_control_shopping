@@ -7,11 +7,12 @@ const StyledButton = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 9px 8px;
+    padding: 1rem .6rem;
+    margin-bottom: .8rem;
+    border-left: 5px solid  ${Theme.Colors.green800};
     border-radius: 4px;
+    box-shadow: ${Theme.Shadow.sh600};
     background-color: transparent;
-    border: .75px solid;
     cursor: pointer;
     transition: background-color 0.4s ease, color 0.4s;
     @media (max-width: 768px) {
@@ -22,8 +23,11 @@ const StyledButton = css`
 const StyledContained = css`
     color: ${Theme.Colors.green800};
     &:hover{
+        border-left: 5px solid  ${Theme.Colors.grey400};
         background-color: ${Theme.Colors.green800};
-        color: ${Theme.Colors.white800};
+        span {
+            color: ${Theme.Colors.white800};
+        }
     }
 `;
 
@@ -36,13 +40,16 @@ export const Content = styled.div`
     gap: 16px;
     padding: .8rem; //Quando gerar barra de rolagem;
 `;
+export const WrapButton = styled.button`
+    ${StyledButton};
+    ${StyledContained};
+`;
 export const CardItem = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
 `;
 export const WrapItem = styled.div`
     width: 100%;
@@ -51,6 +58,8 @@ export const WrapItem = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: .8rem;
+    padding: .4rem 0;
 `;
 export const WrapDescriptionIndex = styled.div`
 /* border: 1px solid blue; */
@@ -63,24 +72,15 @@ export const WrapDescriptionIndex = styled.div`
 export const Index = styled.div`
     /* border: 1px solid blue; */
     width: auto;
-    span {
-        display: inline-block;   /* Permite definir largura e altura */
-        width: auto;
-        max-width: 100px;             /* Define a largura máxima */
-        word-wrap: break-word;   /* Quebra o texto */
-        overflow-wrap: break-word;
-        white-space: normal;     /* Permite que o texto quebre em várias linhas */
-        overflow: hidden;        /* Oculta o texto excedente */
+    & span {
+        color: ${Theme.Colors.green800};
+        font-weight: 500;  
     }
 `;
 export const Product = styled.div`
     /* border: 1px solid blue; */
     flex: 3.8;
     & span {
-        font-size: 12px;
-        letter-Spacing: 0.5px;
-        line-Height: 12px;
-        font-Weight: 500;
         color: ${Theme.Colors.grey700};
         text-transform: uppercase;
     }
@@ -91,24 +91,25 @@ export const WrapDateValue = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 16px;
+    gap: .4rem;
 `;
 export const DatePurchase = styled.div`
     /* border: 1px solid blue; */
-    
+    & span {
+        font-weight: 500;
+    }
     @media (max-width: 768px) {
         text-align: center;
     }
 `;
 export const ValuePurchase = styled.div`
     /* border: 1px solid blue; */
+    & span {
+        font-weight: 500;
+    }
     @media (max-width: 768px) {
         text-align: center;
     }
 `;
 
-export const WrapButton = styled.button`
-    ${StyledButton};
-    ${StyledContained};
-    border-color: ${Theme.Colors.green800};
-`;
+

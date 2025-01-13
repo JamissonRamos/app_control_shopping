@@ -37,16 +37,19 @@ const CardsList = ({data}) => {
                                         {/* 
                                             * Foi preciso passar o span puro para fica flex o contesto do span
                                         */}
-                                        <span> {i + 1} - </span>
+                                        {/* <span> {i + 1} - </span> */}
+                                        <TextC.Body level={5} > {i + 1} - </TextC.Body>
                                     </S.Index>
 
                                     <S.Product>
                                         {/*
                                             * Foi preciso passar o span puro para fica flex o contesto do span
                                         */}
-                                        <span>
+                                        {/* <span>
                                             { productName }
-                                        </span>
+                                        </span> */}
+
+                                        <TextC.Body level={3} > { productName } </TextC.Body>
 
                                     </S.Product>
 
@@ -54,11 +57,11 @@ const CardsList = ({data}) => {
 
                                 <S.WrapDateValue>
                                     <S.DatePurchase>
-                                        <TextC.Label level={3}> { datePurchase } </TextC.Label>
+                                        <TextC.Body level={3}> { datePurchase } </TextC.Body>
                                     </S.DatePurchase>
 
                                     <S.ValuePurchase>
-                                        <TextC.Label level={3}> { handleFormatCurrency(valuePurchase)  } </TextC.Label>
+                                        <TextC.Body level={4}> { handleFormatCurrency(valuePurchase)  } </TextC.Body>
                                     </S.ValuePurchase>
                                 </S.WrapDateValue>
                             </S.WrapItem>

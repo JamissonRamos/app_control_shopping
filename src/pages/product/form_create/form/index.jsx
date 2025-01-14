@@ -99,8 +99,8 @@ const FormCreate = () => {
                                 />
                             </> :
                             <>
-                                <Theme.Icons.MdSaveAlt />
                                 <span>Salvar</span>
+                                <Theme.Icons.MdSaveAlt />
                             </>
                         } 
                     </S.ButtonRegister>

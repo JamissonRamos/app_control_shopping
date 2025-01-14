@@ -80,7 +80,11 @@ export const Index = styled.div`
 export const Product = styled.div`
     /* border: 1px solid blue; */
     flex: 3.8;
-    & span {
+    & span{
+        display: flex;
+        flex-direction: column;
+        padding: 0 .2rem;
+        text-align: start;
         color: ${Theme.Colors.grey700};
         text-transform: uppercase;
     }

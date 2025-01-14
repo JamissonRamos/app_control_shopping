@@ -1,4 +1,3 @@
-import { useState } from "react";
 import * as S from './styled';
 import { TextC } from "../../../../components/Typography";
 import { useNavigate } from "react-router-dom";
@@ -34,25 +33,12 @@ const CardsList = ({data}) => {
                             <S.WrapItem>
                                 <S.WrapDescriptionIndex>
                                     <S.Index>
-                                        {/* 
-                                            * Foi preciso passar o span puro para fica flex o contesto do span
-                                        */}
-                                        {/* <span> {i + 1} - </span> */}
                                         <TextC.Body level={5} > {i + 1} - </TextC.Body>
                                     </S.Index>
 
                                     <S.Product>
-                                        {/*
-                                            * Foi preciso passar o span puro para fica flex o contesto do span
-                                        */}
-                                        {/* <span>
-                                            { productName }
-                                        </span> */}
-
                                         <TextC.Body level={3} > { productName } </TextC.Body>
-
                                     </S.Product>
-
                                 </S.WrapDescriptionIndex>
 
                                 <S.WrapDateValue>

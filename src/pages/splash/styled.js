@@ -69,7 +69,10 @@ export const Footer = styled.div`
             color: ${Theme.Colors.green800};
         }
         & :hover {
-                color: ${Theme.Colors.white800}
+            color: ${Theme.Colors.white800};
+            & span {
+                color: ${Theme.Colors.white800};
+            }
         }
     }
 

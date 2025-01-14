@@ -23,6 +23,7 @@ const StyledButton = css`
         text-transform: uppercase;
     }
     & svg {
+        /* border: 1px solid red; */
         font-size: 1.2rem;
     }
 `;
